@@ -35,56 +35,49 @@
 ```C++
 #include <iostream>
 
-class PIDController {
-private:
-    double kp;  // Пропорциональный коэффициент
-    double ki;  // Интегральный коэффициент
-    double kd;  // Дифференциальный коэффициент
+#include <iostream>
 
-    double previous_error;  // Предыдущее значение ошибки
-    double integral;        // Сумма интеграла ошибки
-
-    // Новые параметры
+struct PIDParameters {
+    double kp;
+    double ki;
+    double kd;
     double K;
     double T;
     double TD;
     double T0;
-
-public:
-    PIDController(double kp, double ki, double kd, double K, double T, double TD, double T0)
-        : kp(kp), ki(ki), kd(kd), K(K), T(T), TD(TD), T0(T0), previous_error(0.0), integral(0.0) {}
-
-    double calculate(double setpoint, double measured_value, double dt) {
-        double error = setpoint - measured_value; // Отклонение
-        integral += error * dt;                   // Интегральная ошибка
-        double derivative = (error - previous_error) / dt; // Дифференциальная ошибка
-
-        // Расчет управляющего воздействия
-        double output = kp * error + ki * integral + kd * derivative;
-
-        previous_error = error;
-        return output;
-    }
 };
 
-int main() {
-    // Передаем значения K, T, TD, T0 при создании объекта
-    PIDController pid(1.0, 0.1, 0.05, 0.0001, 100, 100, 1);
+double calculate(double setpoint, double measured_value, double dt, PIDParameters& params, double& previous_error, double& integral) {
+    double error = setpoint - measured_value;
+    integral += error * dt;
+    double derivative = (error - previous_error) / dt;
 
-    double setpoint = 100.0;   // Желаемое значение
-    double measured_value = 90.0;  // Измеренное значение
-    double dt = 0.1;           // Интервал времени
+    double output = params.kp * error + params.ki * integral + params.kd * derivative;
+
+    previous_error = error;
+    return output;
+}
+
+int main() {
+    PIDParameters params = { 1.0, 0.1, 0.05, 0.0001, 100, 100, 1 };
+
+    double setpoint = 100.0;
+    double measured_value = 90.0;
+    double dt = 0.1;
+
+    double previous_error = 0.0;
+    double integral = 0.0;
 
     for (int i = 0; i < 100; ++i) {
-        double control = pid.calculate(setpoint, measured_value, dt);
+        double control = calculate(setpoint, measured_value, dt, params, previous_error, integral);
         std::cout << control << std::endl;
 
-        // Симуляция изменения измеренного значения
         measured_value += control * 0.1;
     }
 
     return 0;
 }
+
 ```
 
 Результат выполнения программы:
