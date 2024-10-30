@@ -2,14 +2,13 @@
 
 class PIDController {
 private:
-    double kp;  // Пропорциональный коэффициент
-    double ki;  // Интегральный коэффициент
-    double kd;  // Дифференциальный коэффициент
+    double kp;
+    double ki;
+    double kd;
 
-    double previous_error;  // Предыдущее значение ошибки
-    double integral;        // Сумма интеграла ошибки
+    double previous_error;
+    double integral; 
 
-    // Новые параметры
     double K;
     double T;
     double TD;
@@ -20,11 +19,10 @@ public:
         : kp(kp), ki(ki), kd(kd), K(K), T(T), TD(TD), T0(T0), previous_error(0.0), integral(0.0) {}
 
     double calculate(double setpoint, double measured_value, double dt) {
-        double error = setpoint - measured_value; // Отклонение
-        integral += error * dt;                   // Интегральная ошибка
-        double derivative = (error - previous_error) / dt; // Дифференциальная ошибка
+        double error = setpoint - measured_value; 
+        integral += error * dt;               
+        double derivative = (error - previous_error) / dt; 
 
-        // Расчет управляющего воздействия
         double output = kp * error + ki * integral + kd * derivative;
 
         previous_error = error;
@@ -33,18 +31,16 @@ public:
 };
 
 int main() {
-    // Передаем значения K, T, TD, T0 при создании объекта
     PIDController pid(1.0, 0.1, 0.05, 0.0001, 100, 100, 1);
 
-    double setpoint = 100.0;   // Желаемое значение
-    double measured_value = 90.0;  // Измеренное значение
-    double dt = 0.1;           // Интервал времени
+    double setpoint = 100.0;   
+    double measured_value = 90.0;  
+    double dt = 0.1;       
 
     for (int i = 0; i < 100; ++i) {
         double control = pid.calculate(setpoint, measured_value, dt);
         std::cout << control << std::endl;
 
-        // Симуляция изменения измеренного значения
         measured_value += control * 0.1;
     }
 
