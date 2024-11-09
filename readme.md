@@ -1,4 +1,4 @@
-﻿# Общая теория интеллектуальных систем
+# Общая теория интеллектуальных систем
 
 ## Задания
 
@@ -74,4 +74,3 @@
 |24|Прокопюк Артем|[ii02612](./trunk/ii02612/)|:white_check_mark:|:white_check_mark:|:white_check_mark:||:white_check_mark:||||
 |25|Рубцов Дмитрий|[ii02613](./trunk/ii02613/)|:white_check_mark:|:white_check_mark:|:white_check_mark:||||||
 |26|Ерошин Егор|[ii02621](./trunk/ii02621/)|:white_check_mark:|:white_check_mark:||||||||
-
