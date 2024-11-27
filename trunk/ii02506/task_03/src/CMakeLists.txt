@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(otis_3)
+project(otis_project)
 
 set(SOURCES
     Source.cpp
-    ConsoleApplication1.cpp
+    ConsoleApp.cpp
 )
 
 set(HEADERS
-    Header.h
+    GraphAlgorithms.h
 )
 
-add_executable(OTIS_03_new ${SOURCES} ${HEADERS})
+add_executable(otis_project ${SOURCES} ${HEADERS})
