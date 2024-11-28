@@ -21,7 +21,7 @@
 | 3  | Андреюк Максим       ||||||||||
 | 4  | Подгайский Денис     ||||||||||
 | 5  | Мохорева Татьяна     |[ii0230290](trunk/ii0230290/)|✅|✅|||||||
-| 6  |Трошин Иван|[ii02506](trunk/ii02506)|✅|✅|✅||✅||||
+| 6  |Трошин Иван|[ii02506](trunk/ii02506)|✅|✅|✅|✅|✅||||
 | 7  | Бекназарова Анжелика |[ii0230277](./trunk/ii0230277/)|✅|✅|||||||
 | 8  |Елец Юлия |[ii02508](trunk/ii02508)|✅|✅|✅|✅|||||
 | 9  | Сидорчук Артём       ||||||||||
@@ -74,4 +74,5 @@
 |24|Прокопюк Артем|[ii02612](./trunk/ii02612/)|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:||||
 |25|Рубцов Дмитрий|[ii02613](./trunk/ii02613/)|:white_check_mark:|:white_check_mark:|:white_check_mark:||||||
 |26|Ерошин Егор|[ii00230304](./trunk/ii00230304/)|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|||||
+
 
